@@ -11,22 +11,22 @@
     >
   </small>
 </footer>
-<script src="/assets/js/main.js" defer="defer"></script>
+<script src="/blog/assets/js/main.js" defer="defer"></script>
 
 {%- if page.google_analytics -%}
-  <script src="/assets/js/galite.js"></script>
+  <script src="/blog/assets/js/galite.js"></script>
   <script>
     var galite = galite || {};
     galite.UA = "{{ site.google_analytics }}";
   </script>
 {%- endif -%}
-{%- if page.url == '/archive/' -%}
-  <script src="/assets/js/search.min.js"></script>
+{%- if page.url == '/blog/archive/' -%}
+  <script src="/blog/assets/js/search.min.js"></script>
   <script>
     var sjs = SimpleJekyllSearch({
       searchInput: document.getElementById('search-input'),
       resultsContainer: document.getElementById('search-results'),
-      json: '/assets/search.json',
+      json: '/blog/assets/search.json',
     });
   </script>
 {%- endif -%}
