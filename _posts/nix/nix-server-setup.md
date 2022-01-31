@@ -37,3 +37,5 @@ b server ~/.config/nixpkgs"
 home-manager switch
 
 Setup Complete !!
+
+## Note:  do not forget to set root password !
