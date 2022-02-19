@@ -17,7 +17,7 @@ $ bundle exec jekyll serve
 On Nix:
 
 ```
-$ bundlix -l
+$ bundix -l
 $ nix-shell
 $ bundle exec jekyll serve
 ```

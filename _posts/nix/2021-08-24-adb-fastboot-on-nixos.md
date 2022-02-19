@@ -1,6 +1,6 @@
 ---
 title: ADB Fastboot on NixOS
-tags: [adb,fastboot]
+tags: [adb,fastboot,nix,nixos]
 ---
 ## This guide covers how to get get adb and fastboot working on NixOS
 
