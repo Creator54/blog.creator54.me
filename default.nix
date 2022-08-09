@@ -7,6 +7,6 @@ let
   };
 in stdenv.mkDerivation {
   name = "blog";
-  buildInputs = [gems ruby];
+  buildInputs = [gems ruby bundix];
 }
 
