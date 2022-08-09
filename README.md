@@ -17,9 +17,9 @@ $ bundle exec jekyll serve
 On Nix:
 
 ```
-$ bundix -l
 $ nix-shell
-$ bundle exec jekyll serve
+$ bundle exec jekyll serve #for live server
+$ bundle exec jekyll build #for rebuilding
 ```
 
 Navigate to `localhost:4000`.
