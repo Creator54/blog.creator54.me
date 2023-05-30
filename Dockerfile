@@ -1,5 +1,4 @@
 FROM ruby
-#Do not use lates, as it comes with diffrent bundler version and overriding does not work
 
 WORKDIR /app
 
