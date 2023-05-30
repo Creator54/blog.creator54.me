@@ -6,3 +6,4 @@ klise-*.gem
 Gemfile.lock
 _site/Dockerfile
 _site/shell.nix
+_site
