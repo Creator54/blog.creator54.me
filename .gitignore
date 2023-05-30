@@ -4,3 +4,5 @@
 _drafts
 klise-*.gem
 Gemfile.lock
+_site/Dockerfile
+_site/shell.nix
