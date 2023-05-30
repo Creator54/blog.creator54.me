@@ -13,4 +13,4 @@ RUN bundle add webrick
 
 CMD ["bundle","exec","jekyll","build"]
 
-CMD ["bundle", "exec","jekyll","serve"]
+CMD ["bundle", "exec","jekyll","serve","--host","0.0.0.0"]
