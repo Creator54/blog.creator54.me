@@ -5,11 +5,13 @@ let
   }) {};
 in
 nixpkgs.mkShell {
+  name = "blogger";
   buildInputs = with nixpkgs.pkgs; [ ruby gem bundler ];
   shellHook = ''
     if ! bundle exec jekyll build &>/dev/null; then
       bundle update
     fi
+    bundle exec jekyll build
   '';
 }
 

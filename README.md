@@ -18,7 +18,6 @@ On Nix:
 
 ```
 $ nix-shell
-$ bundle exec jekyll build #for rebuilding
 $ bundle exec jekyll serve #for live server
 ```
 
