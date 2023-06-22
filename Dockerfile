@@ -6,7 +6,7 @@ COPY . .
 
 RUN rm ./Gemfile.lock
 
-RUN bundle install
+RUN bundle update
 
 RUN bundle add webrick
 

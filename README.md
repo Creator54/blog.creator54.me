@@ -10,7 +10,7 @@ Run local server:
 ```bash
 $ git clone https://github.com/creator54/blog.creator54.me.git new-site
 $ cd new-site
-$ bundle install
+$ bundle update
 $ bundle exec jekyll serve
 ```
 
