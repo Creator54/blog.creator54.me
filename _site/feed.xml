@@ -1,4 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-IN"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://creator54.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://creator54.me/" rel="alternate" type="text/html" hreflang="en-IN" /><updated>2023-06-22T21:11:55+05:30</updated><id>https://creator54.me/feed.xml</id><title type="html">My Blog</title><subtitle>Blog about documenting stuff that i learn/learnt.&lt;a href=&quot;https://github.com/creator54&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><entry><title type="html">NixOS Server Setup</title><link href="https://creator54.me/nix-server-setup/" rel="alternate" type="text/html" title="NixOS Server Setup" /><published>2022-01-30T18:09:24+05:30</published><updated>2022-01-30T18:09:24+05:30</updated><id>https://creator54.me/nix-server-setup</id><content type="html" xml:base="https://creator54.me/nix-server-setup/"><![CDATA[<h1 id="nix-server-setup--a-simple-script-to-automate-this">NIX SERVER-SETUP : <a href="https://github.com/creator54/nix-server-setup">a simple script to automate this</a></h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-IN"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-IN" /><updated>2023-07-15T02:25:59+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Blog</title><subtitle>Blog about documenting stuff that i learn/learnt.&lt;a href=&quot;https://github.com/creator54&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><entry><title type="html">Keeping a Docker Container Running for Debugging</title><link href="http://localhost:4000/docker-debugging/" rel="alternate" type="text/html" title="Keeping a Docker Container Running for Debugging" /><published>2023-07-15T00:00:00+05:30</published><updated>2023-07-15T00:00:00+05:30</updated><id>http://localhost:4000/docker-debugging</id><content type="html" xml:base="http://localhost:4000/docker-debugging/"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<p>When working with Docker containers, it can be helpful to keep a container running in the background while performing debugging or troubleshooting tasks. This guide will show you how to run a Docker container and keep it running using a specific command.</p>
+
+<h2 id="the-command">The Command</h2>
+
+<p>The following Docker command allows you to start a container and keep it running:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-it</span> <span class="nt">-d</span> <span class="nt">--name</span> my_container &lt;image_name&gt; /usr/bin/env bash <span class="nt">-c</span> <span class="s2">"yes"</span>
+</code></pre></div></div>
+
+<p>Let’s break down the command:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-it</code>: This option enables an interactive terminal session within the container.</li>
+  <li><code class="language-plaintext highlighter-rouge">-d</code>: This option runs the container in the background (detached mode).</li>
+  <li><code class="language-plaintext highlighter-rouge">--name my_container</code>: This option sets a custom name for the container, in this case, “my_container”. You can choose any name you prefer.</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;image_name&gt;</code>: Replace this with the name of the Docker image you want to use for the container.</li>
+  <li><code class="language-plaintext highlighter-rouge">/usr/bin/env bash -c "yes"</code>: This command runs the “yes” command continuously inside the container. The “yes” command outputs “y” (yes) until interrupted. Letting us keep the container alive.</li>
+</ul>
+
+<p>Using the Container</p>
+
+<p>Once you run the command, the container will be started and kept running in the background. You can then perform various debugging tasks or check the container’s behavior as needed.</p>
+
+<p>To access the container’s shell and interact with it, you can use the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker exec -it my_container bash
+</code></pre></div></div>
+
+<p>This will open an interactive shell session inside the running container, allowing you to execute commands and perform debugging tasks.
+Conclusion</p>
+
+<p>By using the provided Docker command, you can easily start a container and keep it running for debugging purposes. This allows you to investigate the container’s behavior, check logs, and execute commands inside the container while it remains active in the background.</p>
+
+<p>Remember to replace <image_name> with the actual Docker image you want to use for your container. With this approach, you have more flexibility and control over the container, enabling efficient debugging and troubleshooting.</image_name></p>
+
+<p>Happy debugging 😀 !</p>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="docker" /><category term="debugging" /><category term="containers" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">NixOS Server Setup</title><link href="http://localhost:4000/nix-server-setup/" rel="alternate" type="text/html" title="NixOS Server Setup" /><published>2022-01-30T18:09:24+05:30</published><updated>2022-01-30T18:09:24+05:30</updated><id>http://localhost:4000/nix-server-setup</id><content type="html" xml:base="http://localhost:4000/nix-server-setup/"><![CDATA[<h1 id="nix-server-setup--a-simple-script-to-automate-this">NIX SERVER-SETUP : <a href="https://github.com/creator54/nix-server-setup">a simple script to automate this</a></h1>
 <h1 id="currently-none-provide-with-nix-images-thus-have-to-use-conversion-">currently none provide with nix-images thus have to use conversion !</h1>
 
 <h2 id="ssh-to-server-and-run">SSH to server and run</h2>
@@ -27,7 +64,7 @@ home-manager switch
 </code></pre></div></div>
 <p>Setup Complete !!</p>
 
-<h2 id="note--do-not-forget-to-set-root-password-">Note:  do not forget to set root password !</h2>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="nix" /><category term="nixos" /><summary type="html"><![CDATA[Setting up nixos on Cloud]]></summary></entry><entry><title type="html">ADB Fastboot on NixOS</title><link href="https://creator54.me/adb-fastboot-on-nixos/" rel="alternate" type="text/html" title="ADB Fastboot on NixOS" /><published>2021-08-24T00:00:00+05:30</published><updated>2021-08-24T00:00:00+05:30</updated><id>https://creator54.me/adb-fastboot-on-nixos</id><content type="html" xml:base="https://creator54.me/adb-fastboot-on-nixos/"><![CDATA[<h2 id="this-guide-covers-how-to-get-get-adb-and-fastboot-working-on-nixos">This guide covers how to get get adb and fastboot working on NixOS</h2>
+<h2 id="note--do-not-forget-to-set-root-password-">Note:  do not forget to set root password !</h2>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="nix" /><category term="nixos" /><summary type="html"><![CDATA[Setting up nixos on Cloud]]></summary></entry><entry><title type="html">ADB Fastboot on NixOS</title><link href="http://localhost:4000/adb-fastboot-on-nixos/" rel="alternate" type="text/html" title="ADB Fastboot on NixOS" /><published>2021-08-24T00:00:00+05:30</published><updated>2021-08-24T00:00:00+05:30</updated><id>http://localhost:4000/adb-fastboot-on-nixos</id><content type="html" xml:base="http://localhost:4000/adb-fastboot-on-nixos/"><![CDATA[<h2 id="this-guide-covers-how-to-get-get-adb-and-fastboot-working-on-nixos">This guide covers how to get get adb and fastboot working on NixOS</h2>
 
 <p>First you need to get the android tools package. NixOS stable currently doesn’t
 include android-tools so get it via nixpkgs.</p>
@@ -53,7 +90,7 @@ unplug and replug again.</p>
   <li><code class="language-plaintext highlighter-rouge">adb shell am start -a android.intent.action.VIEW -d $url</code></li>
 </ul>
 
-<p>Enjoy !!</p>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="adb" /><category term="fastboot" /><category term="nix" /><category term="nixos" /><summary type="html"><![CDATA[This guide covers how to get get adb and fastboot working on NixOS]]></summary></entry><entry><title type="html">Git What,Why and How ?</title><link href="https://creator54.me/git-guide/" rel="alternate" type="text/html" title="Git What,Why and How ?" /><published>2020-12-24T12:24:24+05:30</published><updated>2020-12-24T12:24:24+05:30</updated><id>https://creator54.me/git-guide</id><content type="html" xml:base="https://creator54.me/git-guide/"><![CDATA[<h4 id="-what-is-git-"><img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="git" width="30" /> What is git ?</h4>
+<p>Enjoy !!</p>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="adb" /><category term="fastboot" /><category term="nix" /><category term="nixos" /><summary type="html"><![CDATA[This guide covers how to get get adb and fastboot working on NixOS]]></summary></entry><entry><title type="html">Git What,Why and How ?</title><link href="http://localhost:4000/git-guide/" rel="alternate" type="text/html" title="Git What,Why and How ?" /><published>2020-12-24T12:24:24+05:30</published><updated>2020-12-24T12:24:24+05:30</updated><id>http://localhost:4000/git-guide</id><content type="html" xml:base="http://localhost:4000/git-guide/"><![CDATA[<h4 id="-what-is-git-"><img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="git" width="30" /> What is git ?</h4>
 
 <p>Git is a open source distributed Version Control System(VCS) originally developed in 2005 by <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a> the creator of the linux kernel and is still being actively mantained.</p>
 <hr />

@@ -1,6 +1,13 @@
 [
   
     {
+      "title"    : "Keeping a Docker Container Running for Debugging",
+      "tags"     : "docker, debugging, containers",
+      "url"      : "/docker-debugging/",
+      "date"     : "2023-07-15 00:00:00 +0530"
+    } ,
+  
+    {
       "title"    : "NixOS Server Setup",
       "tags"     : "nix, nixos",
       "url"      : "/nix-server-setup/",
