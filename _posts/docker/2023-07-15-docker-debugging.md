@@ -1,6 +1,6 @@
 ---
 title: Keeping a Docker Container Running for Debugging
-tags: [docker, debugging, containers]
+tags: [docker,debugging,containers]
 ---
 
 ## Introduction
