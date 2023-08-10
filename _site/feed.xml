@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-IN"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-IN" /><updated>2023-07-31T01:32:17+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Blog</title><subtitle>Blog about documenting stuff that i learn/learnt.&lt;a href=&quot;https://github.com/creator54&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><entry><title type="html">Keeping a Docker Container Running for Debugging</title><link href="http://localhost:4000/docker-debugging/" rel="alternate" type="text/html" title="Keeping a Docker Container Running for Debugging" /><published>2023-07-15T00:00:00+05:30</published><updated>2023-07-15T00:00:00+05:30</updated><id>http://localhost:4000/docker-debugging</id><content type="html" xml:base="http://localhost:4000/docker-debugging/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-IN"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-IN" /><updated>2023-08-10T18:47:47+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Blog</title><subtitle>Blog about documenting stuff that i learn/learnt.&lt;a href=&quot;https://github.com/creator54&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><entry><title type="html">Kubernetes Beginners Guide</title><link href="http://localhost:4000/kubernetes-basics/" rel="alternate" type="text/html" title="Kubernetes Beginners Guide" /><published>2023-08-10T00:00:00+05:30</published><updated>2023-08-10T00:00:00+05:30</updated><id>http://localhost:4000/kubernetes-basics</id><content type="html" xml:base="http://localhost:4000/kubernetes-basics/"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<p>Kubernetes, often abbreviated as K8s, has transformed the world of container orchestration, making it easier to manage and deploy containerized applications across diverse environments. This guide is a comprehensive introduction to Kubernetes, covering its core concepts, benefits, and essential commands for engineers.</p>
+
+<h2 id="the-kubernetes-challenge">The Kubernetes Challenge</h2>
+
+<p>Before Kubernetes, managing containerized applications posed significant challenges:</p>
+
+<ol>
+  <li><strong>Complexity</strong>: Traditional script-based approaches for managing containers were complex and error-prone.</li>
+  <li><strong>Service Availability</strong>: Ensuring continuous availability during updates or hardware failures was a struggle.</li>
+  <li><strong>Scalability</strong>: Traditional systems couldn’t efficiently scale to meet the demands of modern applications.</li>
+</ol>
+
+<h2 id="kubernetes-a-solution-overview">Kubernetes: A Solution Overview</h2>
+
+<p>Kubernetes addresses these challenges in the following ways:</p>
+
+<ol>
+  <li><strong>Declarative Configuration</strong>: Kubernetes uses declarative configuration to specify the desired state of applications, reducing the need for complex scripts.</li>
+  <li><strong>High Availability</strong>: Kubernetes automatically distributes workloads across nodes, ensuring high availability and minimizing downtime.</li>
+  <li><strong>Efficient Scalability</strong>: Kubernetes dynamically scales applications based on resource utilization, enabling seamless handling of varying workloads.</li>
+  <li><strong>Zero Downtime Updates</strong>: Kubernetes performs updates with zero downtime through rolling updates, guaranteeing uninterrupted service availability.</li>
+  <li><strong>Resource Management</strong>: Kubernetes allows fine-grained control over resource allocation, preventing resource-hungry containers from affecting others.</li>
+  <li><strong>Isolation and Multi-Tenancy</strong>: Kubernetes uses namespaces for isolation, allowing different teams or applications to coexist in the same cluster.</li>
+</ol>
+
+<h2 id="core-concepts">Core Concepts</h2>
+
+<p>Kubernetes introduces essential concepts:</p>
+
+<ol>
+  <li><strong>Pods</strong>: Pods are the fundamental units, hosting one or more containers.</li>
+  <li><strong>Deployments</strong>: Deployments define pod blueprints, handle zero-downtime updates, and ensure application consistency.</li>
+  <li><strong>StatefulSets</strong>: Ideal for managing stateful applications like databases, ensuring data consistency.</li>
+  <li><strong>Services</strong>: Services provide a stable communication mechanism for pods, including load balancing.</li>
+  <li><strong>Ingress</strong>: Ingress routes external traffic to services, a crucial component for web applications.</li>
+  <li><strong>ConfigMap and Secrets</strong>: ConfigMap stores configuration settings, while Secrets securely manage sensitive data.</li>
+  <li><strong>Volumes</strong>: Volumes offer persistent storage for containers, facilitating data persistence.</li>
+</ol>
+
+<h2 id="essential-kubectl-commands">Essential kubectl Commands</h2>
+
+<p>As a Kubernetes engineer, you’ll use these fundamental <code class="language-plaintext highlighter-rouge">kubectl</code> commands:</p>
+
+<ol>
+  <li><strong>List Resources</strong>: <code class="language-plaintext highlighter-rouge">kubectl get [resource-type]</code></li>
+  <li><strong>Create a Resource</strong>: <code class="language-plaintext highlighter-rouge">kubectl create [resource-type] [resource-name] [flags]</code></li>
+  <li><strong>Describe a Resource</strong>: <code class="language-plaintext highlighter-rouge">kubectl describe [resource-type] [resource-name]</code></li>
+  <li><strong>Delete a Resource</strong>: <code class="language-plaintext highlighter-rouge">kubectl delete [resource-type] [resource-name]</code></li>
+  <li><strong>Apply Configuration from a File</strong>: <code class="language-plaintext highlighter-rouge">kubectl apply -f [file.yaml]</code></li>
+  <li><strong>Scaling</strong>: <code class="language-plaintext highlighter-rouge">kubectl scale [resource-type] [resource-name] --replicas=[count]</code></li>
+  <li><strong>Port Forwarding</strong>: <code class="language-plaintext highlighter-rouge">kubectl port-forward [pod-name] [local-port]:[pod-port]</code></li>
+  <li><strong>Logs</strong>: <code class="language-plaintext highlighter-rouge">kubectl logs [pod-name]</code></li>
+  <li><strong>Namespace Management</strong>: <code class="language-plaintext highlighter-rouge">kubectl create namespace [namespace-name]</code></li>
+  <li><strong>Context and Configuration</strong>: <code class="language-plaintext highlighter-rouge">kubectl config use-context [context-name]</code></li>
+</ol>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>With Kubernetes, we have a powerful tool for managing containerized applications, ensuring high availability, scalability, and efficient debugging.</p>
+
+<h2 id="read-more">Read More</h2>
+
+<p>Refer Kubernetes <a href="https://kubernetes.io/docs/">documentation</a> for comprehensive information on each command and their various options.</p>
+
+<p>Happy Kuberneting! 🚀</p>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="kubernetes" /><category term="container-orchestration" /><category term="devops" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Keeping a Docker Container Running for Debugging</title><link href="http://localhost:4000/docker-debugging/" rel="alternate" type="text/html" title="Keeping a Docker Container Running for Debugging" /><published>2023-07-15T00:00:00+05:30</published><updated>2023-07-15T00:00:00+05:30</updated><id>http://localhost:4000/docker-debugging</id><content type="html" xml:base="http://localhost:4000/docker-debugging/"><![CDATA[<h2 id="introduction">Introduction</h2>
 
 <p>When working with Docker containers, it can be helpful to keep a container running in the background while performing debugging or troubleshooting tasks. This guide will show you how to run a Docker container and keep it running using a specific command.</p>
 

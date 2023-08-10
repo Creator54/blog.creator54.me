@@ -1,0 +1,28 @@
+<h2 id="this-guide-covers-how-to-get-get-adb-and-fastboot-working-on-nixos">This guide covers how to get get adb and fastboot working on NixOS</h2>
+
+<p>First you need to get the android tools package. NixOS stable currently doesn’t
+include android-tools so get it via nixpkgs.</p>
+
+<blockquote>
+  <p>nix-env -iA nixpkgs.android-tools</p>
+</blockquote>
+
+<p>This will install all base packages like <code class="language-plaintext highlighter-rouge">fastboot</code> and <code class="language-plaintext highlighter-rouge">adb</code>. For fastboot you
+can simply start using the <code class="language-plaintext highlighter-rouge">fastboot</code> cmd after plugging the device on fastboot
+mode. But for adb you need to start the server with root permissions which can
+be achieved via a simple 	<code class="language-plaintext highlighter-rouge">sudo adb devices</code> or <code class="language-plaintext highlighter-rouge">sudo adb shell</code> should work
+with and basic <code class="language-plaintext highlighter-rouge">adb</code> cmd. This is a one time requirement, no need to type sudo
+again and again. Also remember to connect the device with <code class="language-plaintext highlighter-rouge">usb debugging</code> on
+after the above cmd else adb fails to recognise the device and you will need to
+unplug and replug again.</p>
+
+<p>Now you are ready to use adb cmds as per your liking .Eg:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">adb pull /sdcard/test.mp4</code></li>
+  <li><code class="language-plaintext highlighter-rouge">adb shell screenrecord --verbose /sdcard/test.mp4</code></li>
+  <li><code class="language-plaintext highlighter-rouge">adb shell am start -a android.intent.action.VIEW -d $url</code></li>
+</ul>
+
+<p>Enjoy !!</p>
+

@@ -1,6 +1,13 @@
 [
   
     {
+      "title"    : "Kubernetes Beginners Guide",
+      "tags"     : "kubernetes, container-orchestration, devops",
+      "url"      : "/kubernetes-basics/",
+      "date"     : "2023-08-10 00:00:00 +0530"
+    } ,
+  
+    {
       "title"    : "Keeping a Docker Container Running for Debugging",
       "tags"     : "docker, debugging, containers",
       "url"      : "/docker-debugging/",

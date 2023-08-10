@@ -1,0 +1,31 @@
+<h1 id="nix-server-setup--a-simple-script-to-automate-this">NIX SERVER-SETUP : <a href="https://github.com/creator54/nix-server-setup">a simple script to automate this</a></h1>
+<h1 id="currently-none-provide-with-nix-images-thus-have-to-use-conversion-">currently none provide with nix-images thus have to use conversion !</h1>
+
+<h2 id="ssh-to-server-and-run">SSH to server and run</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -s curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | NIX_CHANNEL=nixos-21.11 bash -x
+</code></pre></div></div>
+
+<h2 id="you-will-be-logged-out-after-os-is-converted-to-nixos--login-again-and-proceed-">You will be logged out after OS is converted to NixOS ! Login again and proceed .</h2>
+
+<h2 id="add-to-etcnixosconfigurationnix-for-default-shell">add to /etc/nixos/configuration.nix for default shell</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>users.users.root.shell = pkgs.fish;
+</code></pre></div></div>
+
+<h2 id="copy-local-sshid_ed25519pub-to-server-or-create-a-new-one-as-below">copy local ~/.ssh/id_ed25519.pub to server or create a new one as below</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen -t ed25519 -C 'hi.creator54@gmail.com'
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub #paste this in github
+</code></pre></div></div>
+<h2 id="fetching-configs">Fetching configs</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nix-env -iA nixos.home-manager
+nix-shell -p git --run "git clone git@github.com:creator54/nixos-cfg --recursive -b server ~/.config/nixpkgs"
+home-manager switch
+</code></pre></div></div>
+<p>Setup Complete !!</p>
+
+<h2 id="note--do-not-forget-to-set-root-password-">Note:  do not forget to set root password !</h2>
+

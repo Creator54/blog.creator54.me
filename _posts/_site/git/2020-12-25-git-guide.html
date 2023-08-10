@@ -1,0 +1,101 @@
+<h4 id="-what-is-git-"><img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="git" width="30" /> What is git ?</h4>
+
+<p>Git is a open source distributed Version Control System(VCS) originally developed in 2005 by <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a> the creator of the linux kernel and is still being actively mantained.</p>
+<hr />
+
+<h4 id="why-use-it-">Why use it ?</h4>
+
+<p>While working on a project git tracks the changes you make to files, thus keeping record of what has been done, so you can easily revert your project to some specific point or change should you ever need to. Git also makes collaboration easier, allowing changes by multiple people to all be merged into one source and maintaining projects efficiently. It does so by storing your changes in commits.</p>
+<hr />
+
+<h4 id="how-to-use-git-">How to use git ?</h4>
+
+<p>First you need to install git. For windows visit the link and download and install it, others just open the terminal and type the commands.</p>
+
+<p>Windows 			: <a href="https://git-scm.com/download/win">https://git-scm/download/win</a>
+<br />MacOs 			: <code class="language-plaintext highlighter-rouge">$ brew install git</code>
+<br />Debian/Ubuntu  	: <code class="language-plaintext highlighter-rouge">$ sudo apt install git</code>
+<br />Arch based 		: <code class="language-plaintext highlighter-rouge">$ sudo pacman -S git</code>
+<br />NixOS 			: <code class="language-plaintext highlighter-rouge">$ nix-env -iA nixos.git</code></p>
+
+<ul>
+  <li>Configure git
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global user.name "username" #set git username globally
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global user.email &lt;usermail@example.com&gt; #set git usermail
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global core.editor &lt;editor&gt; #set preferred editor for git
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --list 	#check git config
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>General commands
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init 		#initialize the repo.
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add . 		#stage all changes to be commited
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git commit 		#commit changes with a commit msg + summary
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git commit -m "msg" 	#commit changes with a commit msg.
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git commit --amend 	#amend last commit locally.
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git remote add origin &lt;url.git&gt;   #add url where to host the repo
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git merge &lt;b1&gt;    #merge changes from 'b1' branch to current branch
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git mergetool 	#handy tool for solving merge conflicts
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git cherry-pick &lt;commit-id&gt; 	#add commit with given id from a remote(added to the project) to current branch
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git pull 	#pulls latest changes from default branch(branch/remote can be specified)
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push 	#push latest changes to cloud host default branch(-u,branch,remote can be specified)
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git log 	#show commit history
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout #by default checks out to default branch(branch/commit-id can be specified)
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone &lt;url.git&gt; #clones 'url' current location(location,depth,recursive can also be specified). 
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git status 	#shows the current status of the git repo.
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git commit -m "msg" 	#commit changes with a commit msg.
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git revert  	#revert last commit(commit-id can be specified).
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git commit -m "msg" 	#commit changes with a commit msg.
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git commit --amend --date="Wed Feb 16 14:00 2011 +0100" #commit date+time can be changed
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git commit --signoff	#for signed commits
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch   #show all branches for the remote
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout -b "branch-name"   #switch to new branch 
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch -M "branch-name"     #switch current branch to specified branch.
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone &lt;url&gt; --depth=value    #value=1 fetches the latest repo with only the latest changes or shallow clones it.
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git fetch --unshallow         #converts the shallow repo clone to full clone
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git reset --hard HEAD~1  #removes the head/top commit
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h5 id="some-popular-git-hosting-services">Some popular git hosting services:</h5>
+
+<p>There are various cloud based git clients to help save your projects in cloud. Some popular of them are:</p>
+
+<ol>
+  <li><a href="https://github.com">Github</a></li>
+  <li><a href="https://gitlab.com">GitLab</a></li>
+  <li><a href="https://sourceforge.net">SourceForge</a></li>
+  <li><a href="https://www.gerritcodereview.com/">Gerrit</a></li>
+  <li><a href="https://bitbucket.org/">Bitbucket</a></li>
+  <li><a href="https://www.codebasehq.com/">Codebase</a></li>
+  <li><a href="https://aws.amazon.com/codecommit/">AWS CodeCommit</a></li>
+</ol>

@@ -1,0 +1,38 @@
+<h2 id="introduction">Introduction</h2>
+
+<p>When working with Docker containers, it can be helpful to keep a container running in the background while performing debugging or troubleshooting tasks. This guide will show you how to run a Docker container and keep it running using a specific command.</p>
+
+<h2 id="the-command">The Command</h2>
+
+<p>The following Docker command allows you to start a container and keep it running:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-it</span> <span class="nt">-d</span> <span class="nt">--name</span> my_container &lt;image_name&gt; /usr/bin/env bash <span class="nt">-c</span> <span class="s2">"yes"</span>
+</code></pre></div></div>
+
+<p>Let’s break down the command:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-it</code>: This option enables an interactive terminal session within the container.</li>
+  <li><code class="language-plaintext highlighter-rouge">-d</code>: This option runs the container in the background (detached mode).</li>
+  <li><code class="language-plaintext highlighter-rouge">--name my_container</code>: This option sets a custom name for the container, in this case, “my_container”. You can choose any name you prefer.</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;image_name&gt;</code>: Replace this with the name of the Docker image you want to use for the container.</li>
+  <li><code class="language-plaintext highlighter-rouge">/usr/bin/env bash -c "yes"</code>: This command runs the “yes” command continuously inside the container. The “yes” command outputs “y” (yes) until interrupted. Letting us keep the container alive.</li>
+</ul>
+
+<p>Using the Container</p>
+
+<p>Once you run the command, the container will be started and kept running in the background. You can then perform various debugging tasks or check the container’s behavior as needed.</p>
+
+<p>To access the container’s shell and interact with it, you can use the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker exec -it my_container bash
+</code></pre></div></div>
+
+<p>This will open an interactive shell session inside the running container, allowing you to execute commands and perform debugging tasks.
+Conclusion</p>
+
+<p>By using the provided Docker command, you can easily start a container and keep it running for debugging purposes. This allows you to investigate the container’s behavior, check logs, and execute commands inside the container while it remains active in the background.</p>
+
+<p>Remember to replace <image_name> with the actual Docker image you want to use for your container. With this approach, you have more flexibility and control over the container, enabling efficient debugging and troubleshooting.</image_name></p>
+
+<p>Happy debugging 😀 !</p>
