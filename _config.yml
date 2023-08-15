@@ -5,20 +5,20 @@ description: >- # site description
 lang: en-IN # default lang
 timezone: Asia/Kolkata # set your timezone
 image: https://avatars3.githubusercontent.com/u/34543609?s=460&u=34f0f6c3ebc066d7519075e9cd4d8ad893ba7da1&v=4 # This image used for Open Graph more info https://ogp.me/
-repo: https://github.com/creator54/blog/ # site repo [optional]
+repo: https://github.com/creator54/blogger/ # site repo [optional]
 mode: dark # default theme "dark" | "light"
 
 # Profile settings
 author:
-  name: Creator54  # author name
+  name: Saroj Mahato  # author name
   bio: >- # tell to the world
     This Blog is for documenting stuff that i learn/learnt in the hope that it may help others and ofcourse the future me 😅.
   username: creator54 # general username
-  email: hi.creator54@gmail.com # email adress
+  email: mail@creator54.dev # email adress
   avatar: https://avatars3.githubusercontent.com/u/34543609?s=460&u=34f0f6c3ebc066d7519075e9cd4d8ad893ba7da1&v=4 # change with your own avatar
 
 # URL settings
-url: "https://creator54.me" #
+url: "https://creator54.dev" #
 baseurl:
 permalink: /:title/
 google_analytics: # leave it blank if not wish
@@ -79,6 +79,7 @@ exclude:
   - lighthouse.png
   - klise-*.gem
   - klise.gemspec
+  - assist.py
 
 # Plugins
 plugins:

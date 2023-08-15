@@ -1,6 +1,13 @@
 [
   
     {
+      "title"    : "Running a MySQL Server in a Docker Container",
+      "tags"     : "docker, mysql, containers",
+      "url"      : "/mysql/",
+      "date"     : "2023-08-16 00:00:00 +0530"
+    } ,
+  
+    {
       "title"    : "Kubernetes Beginners Guide",
       "tags"     : "kubernetes, container-orchestration, devops",
       "url"      : "/kubernetes-basics/",

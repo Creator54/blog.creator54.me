@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-IN"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-IN" /><updated>2023-08-10T18:47:47+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Blog</title><subtitle>Blog about documenting stuff that i learn/learnt.&lt;a href=&quot;https://github.com/creator54&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><entry><title type="html">Kubernetes Beginners Guide</title><link href="http://localhost:4000/kubernetes-basics/" rel="alternate" type="text/html" title="Kubernetes Beginners Guide" /><published>2023-08-10T00:00:00+05:30</published><updated>2023-08-10T00:00:00+05:30</updated><id>http://localhost:4000/kubernetes-basics</id><content type="html" xml:base="http://localhost:4000/kubernetes-basics/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-IN"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-IN" /><updated>2023-08-16T02:18:54+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Blog</title><subtitle>Blog about documenting stuff that i learn/learnt.&lt;a href=&quot;https://github.com/creator54&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@github&lt;/a&gt;.</subtitle><author><name>Saroj Mahato</name><email>mail@creator54.dev</email></author><entry><title type="html">Running a MySQL Server in a Docker Container</title><link href="http://localhost:4000/mysql/" rel="alternate" type="text/html" title="Running a MySQL Server in a Docker Container" /><published>2023-08-16T00:00:00+05:30</published><updated>2023-08-16T00:00:00+05:30</updated><id>http://localhost:4000/mysql</id><content type="html" xml:base="http://localhost:4000/mysql/"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<p>Docker is a popular containerization platform that allows you to easily run and manage applications in isolated environments called containers. This guide will walk you through running a MySQL server in a Docker container using the <code class="language-plaintext highlighter-rouge">docker run</code> command, as well as how to connect to the server and some essential commands.</p>
+
+<h2 id="running-a-mysql-server-in-a-docker-container">Running a MySQL Server in a Docker Container</h2>
+
+<p>To create and run a MySQL server in a Docker container, you can use the following command:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--name</span><span class="o">=</span>mysql <span class="nt">-e</span> <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>passwd mysql
+</code></pre></div></div>
+
+<p>Let’s break down the command:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--name=mysql</code>: This option sets the name of the container to “mysql”. You can choose any name you prefer.</li>
+  <li><code class="language-plaintext highlighter-rouge">-e MYSQL_ROOT_PASSWORD=passwd</code>: This option sets the root password for the MySQL server inside the container to “passwd”. Feel free to replace “passwd” with your desired password.</li>
+  <li><code class="language-plaintext highlighter-rouge">mysql</code>: This is the name of the Docker image for the MySQL server.</li>
+</ul>
+
+<p>This command will pull the MySQL image from the Docker Hub if it is not already available on your system, and then start a container running the MySQL server.</p>
+
+<h2 id="waiting-for-the-server-to-be-ready">Waiting for the Server to be Ready</h2>
+
+<p>It is important to wait for the MySQL server to be fully initialized and ready before trying to make any connections to it. One way to do this is by using a shell script to check if the server is ready and waiting for connections:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="k">until </span>docker <span class="nb">exec </span>mysql mysqladmin ping <span class="nt">--silent</span><span class="p">;</span> <span class="k">do
+    </span><span class="nb">sleep </span>1
+<span class="k">done
+
+</span><span class="nb">echo</span> <span class="s2">"MySQL Server has started. Please wait for few more minutes for it to avoid:"</span>
+<span class="nb">echo</span> <span class="s2">"ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)"</span>
+<span class="nb">echo
+
+sleep </span>60
+
+<span class="nb">echo</span> <span class="s2">"MySQL server is ready!"</span>
+</code></pre></div></div>
+
+<p>If you encounter the error <code class="language-plaintext highlighter-rouge">ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)</code>. Please wait for few minutes and check again.
+You can save this script to a file, for example, <code class="language-plaintext highlighter-rouge">wait-for-mysql.sh</code>, and then run it to wait for the MySQL server to be ready.</p>
+
+<h2 id="connecting-to-the-mysql-server">Connecting to the MySQL Server</h2>
+
+<p>Once the MySQL server is ready, you can connect to it using the following command:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> mysql mysql <span class="nt">-u</span> root <span class="nt">-p</span>
+</code></pre></div></div>
+<p>Enter the password set during <code class="language-plaintext highlighter-rouge">docker run</code> when asked. This command will open an interactive session inside the running MySQL container, allowing you to execute SQL commands and manage the MySQL server.</p>
+
+<h2 id="essential-mysql-commands">Essential MySQL Commands</h2>
+
+<p>Here are some essential MySQL commands that you can use to interact with the MySQL server:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">SHOW DATABASES;</code>: Lists all the databases on the server.</li>
+  <li><code class="language-plaintext highlighter-rouge">USE database_name;</code>: Selects the specified database for use.</li>
+  <li><code class="language-plaintext highlighter-rouge">SHOW TABLES;</code>: Lists all the tables in the current database.</li>
+  <li><code class="language-plaintext highlighter-rouge">CREATE DATABASE database_name;</code>: Creates a new database with the specified name.</li>
+  <li><code class="language-plaintext highlighter-rouge">CREATE TABLE table_name (...);</code>: Creates a new table with the specified name and columns.</li>
+  <li><code class="language-plaintext highlighter-rouge">INSERT INTO table_name VALUES (...);</code>: Inserts a new row into the specified table.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In this guide, you learned how to create and run a MySQL server in a Docker container using the <code class="language-plaintext highlighter-rouge">docker run</code> command. You also learned how to wait for the server to be ready before connecting to it, as well as some essential commands for managing the MySQL server.</p>
+
+<p>Running a MySQL server in a Docker container provides a portable and isolated environment for developing and testing applications that rely on a MySQL database. It also allows you to easily replicate the server configurations across different environments, making it simpler to deploy and scale your applications.</p>
+
+<p>Happy MySQL Database learning !</p>]]></content><author><name>Saroj Mahato</name><email>mail@creator54.dev</email></author><category term="docker" /><category term="mysql" /><category term="containers" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Kubernetes Beginners Guide</title><link href="http://localhost:4000/kubernetes-basics/" rel="alternate" type="text/html" title="Kubernetes Beginners Guide" /><published>2023-08-10T00:00:00+05:30</published><updated>2023-08-10T00:00:00+05:30</updated><id>http://localhost:4000/kubernetes-basics</id><content type="html" xml:base="http://localhost:4000/kubernetes-basics/"><![CDATA[<h2 id="introduction">Introduction</h2>
 
 <p>Kubernetes, often abbreviated as K8s, has transformed the world of container orchestration, making it easier to manage and deploy containerized applications across diverse environments. This guide is a comprehensive introduction to Kubernetes, covering its core concepts, benefits, and essential commands for engineers.</p>
 
@@ -64,7 +134,7 @@
 
 <p>Refer Kubernetes <a href="https://kubernetes.io/docs/">documentation</a> for comprehensive information on each command and their various options.</p>
 
-<p>Happy Kuberneting! 🚀</p>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="kubernetes" /><category term="container-orchestration" /><category term="devops" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Keeping a Docker Container Running for Debugging</title><link href="http://localhost:4000/docker-debugging/" rel="alternate" type="text/html" title="Keeping a Docker Container Running for Debugging" /><published>2023-07-15T00:00:00+05:30</published><updated>2023-07-15T00:00:00+05:30</updated><id>http://localhost:4000/docker-debugging</id><content type="html" xml:base="http://localhost:4000/docker-debugging/"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Happy Kuberneting! 🚀</p>]]></content><author><name>Saroj Mahato</name><email>mail@creator54.dev</email></author><category term="kubernetes" /><category term="container-orchestration" /><category term="devops" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Keeping a Docker Container Running for Debugging</title><link href="http://localhost:4000/docker-debugging/" rel="alternate" type="text/html" title="Keeping a Docker Container Running for Debugging" /><published>2023-07-15T00:00:00+05:30</published><updated>2023-07-15T00:00:00+05:30</updated><id>http://localhost:4000/docker-debugging</id><content type="html" xml:base="http://localhost:4000/docker-debugging/"><![CDATA[<h2 id="introduction">Introduction</h2>
 
 <p>When working with Docker containers, it can be helpful to keep a container running in the background while performing debugging or troubleshooting tasks. This guide will show you how to run a Docker container and keep it running using a specific command.</p>
 
@@ -101,7 +171,7 @@ Conclusion</p>
 
 <p>Remember to replace <image_name> with the actual Docker image you want to use for your container. With this approach, you have more flexibility and control over the container, enabling efficient debugging and troubleshooting.</image_name></p>
 
-<p>Happy debugging 😀 !</p>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="docker" /><category term="debugging" /><category term="containers" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">NixOS Server Setup</title><link href="http://localhost:4000/nix-server-setup/" rel="alternate" type="text/html" title="NixOS Server Setup" /><published>2022-01-30T18:09:24+05:30</published><updated>2022-01-30T18:09:24+05:30</updated><id>http://localhost:4000/nix-server-setup</id><content type="html" xml:base="http://localhost:4000/nix-server-setup/"><![CDATA[<h1 id="nix-server-setup--a-simple-script-to-automate-this">NIX SERVER-SETUP : <a href="https://github.com/creator54/nix-server-setup">a simple script to automate this</a></h1>
+<p>Happy debugging 😀 !</p>]]></content><author><name>Saroj Mahato</name><email>mail@creator54.dev</email></author><category term="docker" /><category term="debugging" /><category term="containers" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">NixOS Server Setup</title><link href="http://localhost:4000/nix-server-setup/" rel="alternate" type="text/html" title="NixOS Server Setup" /><published>2022-01-30T18:09:24+05:30</published><updated>2022-01-30T18:09:24+05:30</updated><id>http://localhost:4000/nix-server-setup</id><content type="html" xml:base="http://localhost:4000/nix-server-setup/"><![CDATA[<h1 id="nix-server-setup--a-simple-script-to-automate-this">NIX SERVER-SETUP : <a href="https://github.com/creator54/nix-server-setup">a simple script to automate this</a></h1>
 <h1 id="currently-none-provide-with-nix-images-thus-have-to-use-conversion-">currently none provide with nix-images thus have to use conversion !</h1>
 
 <h2 id="ssh-to-server-and-run">SSH to server and run</h2>
@@ -130,7 +200,7 @@ home-manager switch
 </code></pre></div></div>
 <p>Setup Complete !!</p>
 
-<h2 id="note--do-not-forget-to-set-root-password-">Note:  do not forget to set root password !</h2>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="nix" /><category term="nixos" /><summary type="html"><![CDATA[Setting up nixos on Cloud]]></summary></entry><entry><title type="html">ADB Fastboot on NixOS</title><link href="http://localhost:4000/adb-fastboot-on-nixos/" rel="alternate" type="text/html" title="ADB Fastboot on NixOS" /><published>2021-08-24T00:00:00+05:30</published><updated>2021-08-24T00:00:00+05:30</updated><id>http://localhost:4000/adb-fastboot-on-nixos</id><content type="html" xml:base="http://localhost:4000/adb-fastboot-on-nixos/"><![CDATA[<h2 id="this-guide-covers-how-to-get-get-adb-and-fastboot-working-on-nixos">This guide covers how to get get adb and fastboot working on NixOS</h2>
+<h2 id="note--do-not-forget-to-set-root-password-">Note:  do not forget to set root password !</h2>]]></content><author><name>Saroj Mahato</name><email>mail@creator54.dev</email></author><category term="nix" /><category term="nixos" /><summary type="html"><![CDATA[Setting up nixos on Cloud]]></summary></entry><entry><title type="html">ADB Fastboot on NixOS</title><link href="http://localhost:4000/adb-fastboot-on-nixos/" rel="alternate" type="text/html" title="ADB Fastboot on NixOS" /><published>2021-08-24T00:00:00+05:30</published><updated>2021-08-24T00:00:00+05:30</updated><id>http://localhost:4000/adb-fastboot-on-nixos</id><content type="html" xml:base="http://localhost:4000/adb-fastboot-on-nixos/"><![CDATA[<h2 id="this-guide-covers-how-to-get-get-adb-and-fastboot-working-on-nixos">This guide covers how to get get adb and fastboot working on NixOS</h2>
 
 <p>First you need to get the android tools package. NixOS stable currently doesn’t
 include android-tools so get it via nixpkgs.</p>
@@ -156,7 +226,7 @@ unplug and replug again.</p>
   <li><code class="language-plaintext highlighter-rouge">adb shell am start -a android.intent.action.VIEW -d $url</code></li>
 </ul>
 
-<p>Enjoy !!</p>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="adb" /><category term="fastboot" /><category term="nix" /><category term="nixos" /><summary type="html"><![CDATA[This guide covers how to get get adb and fastboot working on NixOS]]></summary></entry><entry><title type="html">Git What,Why and How ?</title><link href="http://localhost:4000/git-guide/" rel="alternate" type="text/html" title="Git What,Why and How ?" /><published>2020-12-24T12:24:24+05:30</published><updated>2020-12-24T12:24:24+05:30</updated><id>http://localhost:4000/git-guide</id><content type="html" xml:base="http://localhost:4000/git-guide/"><![CDATA[<h4 id="-what-is-git-"><img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="git" width="30" /> What is git ?</h4>
+<p>Enjoy !!</p>]]></content><author><name>Saroj Mahato</name><email>mail@creator54.dev</email></author><category term="adb" /><category term="fastboot" /><category term="nix" /><category term="nixos" /><summary type="html"><![CDATA[This guide covers how to get get adb and fastboot working on NixOS]]></summary></entry><entry><title type="html">Git What,Why and How ?</title><link href="http://localhost:4000/git-guide/" rel="alternate" type="text/html" title="Git What,Why and How ?" /><published>2020-12-24T12:24:24+05:30</published><updated>2020-12-24T12:24:24+05:30</updated><id>http://localhost:4000/git-guide</id><content type="html" xml:base="http://localhost:4000/git-guide/"><![CDATA[<h4 id="-what-is-git-"><img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="git" width="30" /> What is git ?</h4>
 
 <p>Git is a open source distributed Version Control System(VCS) originally developed in 2005 by <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a> the creator of the linux kernel and is still being actively mantained.</p>
 <hr />
@@ -256,4 +326,4 @@ unplug and replug again.</p>
   <li><a href="https://bitbucket.org/">Bitbucket</a></li>
   <li><a href="https://www.codebasehq.com/">Codebase</a></li>
   <li><a href="https://aws.amazon.com/codecommit/">AWS CodeCommit</a></li>
-</ol>]]></content><author><name>Creator54</name><email>hi.creator54@gmail.com</email></author><category term="git" /><category term="github" /><summary type="html"><![CDATA[Git is a free open source distributed Version Control System(VCS) originally developed by Linus Torvalds.]]></summary></entry></feed>
+</ol>]]></content><author><name>Saroj Mahato</name><email>mail@creator54.dev</email></author><category term="git" /><category term="github" /><summary type="html"><![CDATA[Git is a free open source distributed Version Control System(VCS) originally developed by Linus Torvalds.]]></summary></entry></feed>
